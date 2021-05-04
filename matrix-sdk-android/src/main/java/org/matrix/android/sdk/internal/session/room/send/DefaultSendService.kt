@@ -150,7 +150,7 @@ internal class DefaultSendService @AssistedInject constructor(
                     // The image has not yet been sent
                     val attachmentData = ContentAttachmentData(
                             size = messageContent.info!!.size.toLong(),
-                            mimeType = messageContent.info.mimeType!!,
+                            mimeType = messageContent.mimeType,
                             width = messageContent.info.width.toLong(),
                             height = messageContent.info.height.toLong(),
                             name = messageContent.body,
@@ -177,7 +177,7 @@ internal class DefaultSendService @AssistedInject constructor(
                 is MessageFileContent  -> {
                     val attachmentData = ContentAttachmentData(
                             size = messageContent.info!!.size,
-                            mimeType = messageContent.info.mimeType!!,
+                            mimeType = messageContent.mimeType,
                             name = messageContent.getFileName(),
                             queryUri = Uri.parse(messageContent.url),
                             type = ContentAttachmentData.Type.FILE
@@ -189,7 +189,7 @@ internal class DefaultSendService @AssistedInject constructor(
                     val attachmentData = ContentAttachmentData(
                             size = messageContent.audioInfo?.size ?: 0,
                             duration = messageContent.audioInfo?.duration?.toLong() ?: 0L,
-                            mimeType = messageContent.audioInfo?.mimeType,
+                            mimeType = messageContent.mimeType,
                             name = messageContent.body,
                             queryUri = Uri.parse(messageContent.url),
                             type = ContentAttachmentData.Type.AUDIO
