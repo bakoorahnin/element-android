@@ -18,6 +18,7 @@ Bugfix 🐛:
  - Fix wording issue (#3242)
  - Fix missing sender information after edits (#3184)
  - Fix read marker not updating automatically (#3267)
+ - Remove redundant mimetype (vector-im/element-web#2547)
 
 Translations 🗣:
  -
